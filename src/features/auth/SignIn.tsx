@@ -22,6 +22,8 @@ export const SignIn: React.FC<Record<string, unknown>> = () => (
             errorMessages={[]}
         >
             <Input aria-labelledby="form-group-sample" />
+            <span> </span>
+            <Input aria-labelledby="form-group-sample" />
         </FormGroup>
         <FormGroup
             title="password"
