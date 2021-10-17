@@ -10,6 +10,9 @@ import {
   selectCount,
 } from './counterSlice';
 import styles from './Counter.module.css';
+import { createTheme, ThemeProvider, PrimaryButton } from 'smarthr-ui'
+
+const theme = createTheme({})
 
 export function Counter() {
   const count = useAppSelector(selectCount);
@@ -44,12 +47,14 @@ export function Counter() {
           value={incrementAmount}
           onChange={(e) => setIncrementAmount(e.target.value)}
         />
-        <button
-          className={styles.button}
-          onClick={() => dispatch(incrementByAmount(incrementValue))}
-        >
-          Add Amount
-        </button>
+
+        <ThemeProvider theme={theme}>
+          <PrimaryButton
+            onClick={() => dispatch(incrementByAmount(incrementValue))}
+          >
+            Add Amount smarthr-ui</PrimaryButton>
+        </ThemeProvider>
+
         <button
           className={styles.asyncButton}
           onClick={() => dispatch(incrementAsync(incrementValue))}
